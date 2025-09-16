@@ -4,193 +4,171 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Barid Cahyo Nugroho | Android Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      background: #f9f9f9;
-      color: #333;
-      transition: background 0.6s ease, color 0.6s ease;
-    }
-    header {
-      background: #1e293b;
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-      transition: background 0.6s ease;
-    }
-    header h1 {font-size: 2rem; margin-bottom: 0.5rem;}
-    header p {font-weight: 300;}
+    body {font-family: 'Poppins', sans-serif;}
+    .dark-mode {background-color: #0f172a; color: #e2e8f0;}
+    .transition-all {transition: all 0.5s ease;}
 
-    nav {
-      background: #334155;
-      padding: 0.5rem;
-      text-align: center;
-      transition: background 0.6s ease;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav a:hover {text-decoration: underline;}
+    /* Scroll Animations */
+    .reveal {opacity: 0; transform: translateY(30px); transition: all 0.8s ease;}
+    .reveal.active {opacity: 1; transform: translateY(0);}
 
-    .theme-toggle {
-      background: #38bdf8;
-      border: none;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      margin-left: 1rem;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .theme-toggle:hover {background: #0ea5e9; transform: scale(1.05);}
-
-    section {padding: 3rem 1.5rem; max-width: 900px; margin: auto;}
-    section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #1e293b;
-      border-bottom: 2px solid #e2e8f0;
-      display: inline-block;
-      padding-bottom: 0.3rem;
-      transition: color 0.6s ease, border-color 0.6s ease;
-    }
-    .card {
-      background: #fff;
-      padding: 1.5rem;
-      margin: 1rem 0;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-      transition: background 0.6s ease, color 0.6s ease;
-    }
-    .card h3 {margin-bottom: 0.5rem; color: #0f172a; transition: color 0.6s ease;}
-    .card p {font-size: 0.95rem;}
-    .skills span {
-      display: inline-block;
-      background: #e2e8f0;
-      color: #1e293b;
-      padding: 0.4rem 0.8rem;
-      margin: 0.3rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      transition: background 0.6s ease, color 0.6s ease;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background: #1e293b;
-      color: #fff;
-      font-size: 0.9rem;
-      transition: background 0.6s ease;
-    }
-    footer a {color: #38bdf8; text-decoration: none;}
-
-    /* Dark Mode */
-    body.dark {background: #0f172a; color: #e2e8f0;}
-    body.dark header {background: #0f172a;}
-    body.dark nav {background: #1e293b;}
-    body.dark section h2 {color: #e2e8f0; border-bottom: 2px solid #334155;}
-    body.dark .card {background: #1e293b; color: #e2e8f0;}
-    body.dark .card h3 {color: #f1f5f9;}
-    body.dark .skills span {background: #334155; color: #e2e8f0;}
-    body.dark footer {background: #0f172a;}
+    /* Hover Effects */
+    .hover-card {transition: transform 0.3s ease, box-shadow 0.3s ease;}
+    .hover-card:hover {transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
   </style>
 </head>
-<body>
-  <header>
-    <h1>Barid Cahyo Nugroho</h1>
-    <p>Android Developer | Mobile Programmer | Consultant</p>
+<body class="bg-gray-50 text-gray-800 transition-all">
+  <!-- Header / Hero -->
+  <header class="bg-gray-900 text-white py-12 text-center reveal">
+    <h1 class="text-3xl font-bold">Barid Cahyo Nugroho</h1>
+    <p class="text-lg mt-2">Android Developer | Mobile Programmer | Consultant</p>
+    <button id="themeToggle" class="mt-4 px-4 py-2 bg-blue-500 rounded-full hover:bg-blue-600 transition">🌙 Dark Mode</button>
   </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
-    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+  <!-- Navbar -->
+  <nav class="sticky top-0 bg-gray-800 text-white py-3 shadow-md z-10">
+    <ul class="flex justify-center gap-6">
+      <li><a href="#about" class="hover:underline">About</a></li>
+      <li><a href="#experience" class="hover:underline">Experience</a></li>
+      <li><a href="#skills" class="hover:underline">Skills</a></li>
+      <li><a href="#projects" class="hover:underline">Projects</a></li>
+      <li><a href="#contact" class="hover:underline">Contact</a></li>
+    </ul>
   </nav>
 
-  <section id="about">
-    <h2>About Me</h2>
+  <!-- About -->
+  <section id="about" class="max-w-4xl mx-auto py-12 px-4 reveal">
+    <h2 class="text-2xl font-semibold mb-4 border-b-2 border-gray-300 inline-block">About Me</h2>
     <p>Experienced Android Developer with end-to-end experience in IT implementation projects in the telecommunication and IT consulting industry. Skilled in analyzing, documenting business requirements, and developing functional systems for mobile applications.</p>
   </section>
 
-  <section id="experience">
-    <h2>Work Experience</h2>
+  <!-- Experience -->
+  <section id="experience" class="max-w-4xl mx-auto py-12 px-4 reveal">
+    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 inline-block">Work Experience</h2>
 
-    <div class="card">
-      <h3>Sr. Consultant | DT Android (Apr 2021 - Present)</h3>
-      <p><strong>PHINCON | Jakarta Selatan, Indonesia</strong></p>
+    <div class="bg-white rounded-xl shadow-md p-6 mb-6 hover-card">
+      <h3 class="text-xl font-semibold">Sr. Consultant | DT Android (Apr 2021 - Present)</h3>
+      <p class="text-gray-600 font-medium">PHINCON | Jakarta Selatan, Indonesia</p>
+      <img src="assets/images/mytelkomsel.png" alt="MyTelkomsel App" class="w-32 my-3 rounded-lg">
       <p>Developing and maintaining MyTelkomsel App, collaborating with QA, SA, PO, and stakeholders. Responsible for feature development, issue fixing, deployment builds, and mentoring juniors.</p>
     </div>
 
-    <div class="card">
-      <h3>Android Engineer (Nov 2019 - Jul 2020)</h3>
-      <p><strong>GudangAda | Tangerang, Indonesia</strong></p>
+    <div class="bg-white rounded-xl shadow-md p-6 mb-6 hover-card">
+      <h3 class="text-xl font-semibold">Android Engineer (Nov 2019 - Jul 2020)</h3>
+      <p class="text-gray-600 font-medium">GudangAda | Tangerang, Indonesia</p>
+      <img src="assets/images/gudangada.png" alt="GudangAda App" class="w-32 my-3 rounded-lg">
       <p>Developed and maintained GudangAda App. Collaborated with QA, backend, and stakeholders. Prepared builds for Playstore, feature development, and bug fixing.</p>
     </div>
 
-    <div class="card">
-      <h3>Software Developer (Feb 2018 - Nov 2019)</h3>
-      <p><strong>PT. Cipta Inovatif Abadi | Jakarta, Indonesia</strong></p>
+    <div class="bg-white rounded-xl shadow-md p-6 mb-6 hover-card">
+      <h3 class="text-xl font-semibold">Software Developer (Feb 2018 - Nov 2019)</h3>
+      <p class="text-gray-600 font-medium">PT. Cipta Inovatif Abadi | Jakarta, Indonesia</p>
+      <div class="flex gap-4 my-3 flex-wrap">
+        <img src="assets/images/restogo.png" alt="RestoGo" class="w-24 rounded-lg">
+        <img src="assets/images/storego.png" alt="StoreGo" class="w-24 rounded-lg">
+        <img src="assets/images/servgo.png" alt="ServGo" class="w-24 rounded-lg">
+      </div>
       <p>Worked on RestoGo, StoreGo, ServGo apps. Handled feature development, bug fixing, and Playstore deployment.</p>
     </div>
 
-    <div class="card">
-      <h3>Support Services Engineer (Oct 2016 - Oct 2017)</h3>
-      <p><strong>Silverlake Group | Jakarta, Indonesia</strong></p>
+    <div class="bg-white rounded-xl shadow-md p-6 hover-card">
+      <h3 class="text-xl font-semibold">Support Services Engineer (Oct 2016 - Oct 2017)</h3>
+      <p class="text-gray-600 font-medium">Silverlake Group | Jakarta, Indonesia</p>
+      <img src="assets/images/silverlake.png" alt="Silverlake Group" class="w-32 my-3 rounded-lg">
       <p>Analyst Programmer using RPGLE AS-400 on Banking Project OCBC NISP.</p>
     </div>
   </section>
 
-  <section id="skills">
-    <h2>Core Skills</h2>
-    <div class="skills">
-      <span>Kotlin</span><span>Java</span><span>MVVM</span><span>SQLite</span>
-      <span>Firebase</span><span>Room DB</span><span>Realm DB</span>
-      <span>REST API</span><span>Git CI/CD</span><span>Android Studio</span>
-      <span>Jira</span><span>Confluence</span>
+  <!-- Skills -->
+  <section id="skills" class="max-w-4xl mx-auto py-12 px-4 reveal">
+    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 inline-block">Core Skills</h2>
+    <div class="flex flex-wrap gap-3">
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Kotlin</span>
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Java</span>
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">MVVM</span>
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">SQLite</span>
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Firebase</span>
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Room DB</span>
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Realm DB</span>
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">REST API</span>
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Git CI/CD</span>
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Android Studio</span>
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Jira</span>
+      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Confluence</span>
     </div>
   </section>
 
-  <section id="education">
-    <h2>Education</h2>
-    <div class="card">
-      <h3>Universitas Gunadarma (2011 - 2015)</h3>
+  <!-- Projects -->
+  <section id="projects" class="max-w-4xl mx-auto py-12 px-4 reveal">
+    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 inline-block">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white shadow-md rounded-xl p-4 hover-card">
+        <img src="assets/images/mytelkomsel.png" alt="MyTelkomsel" class="rounded-md mb-3">
+        <h3 class="text-lg font-semibold">MyTelkomsel App</h3>
+        <p class="text-gray-600">Telecommunication app with millions of users. Worked on feature development and maintenance.</p>
+      </div>
+      <div class="bg-white shadow-md rounded-xl p-4 hover-card">
+        <img src="assets/images/gudangada.png" alt="GudangAda" class="rounded-md mb-3">
+        <h3 class="text-lg font-semibold">GudangAda App</h3>
+        <p class="text-gray-600">Wholesale marketplace app. Built new features and handled Playstore releases.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="max-w-4xl mx-auto py-12 px-4 reveal">
+    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 inline-block">Education</h2>
+    <div class="bg-white shadow-md rounded-xl p-6 hover-card">
+      <h3 class="text-xl font-semibold">Universitas Gunadarma (2011 - 2015)</h3>
       <p>Bachelor's degree in Computer Science</p>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:barid.cahyo@gmail.com">barid.cahyo@gmail.com</a></p>
+  <!-- Contact -->
+  <section id="contact" class="max-w-4xl mx-auto py-12 px-4 reveal">
+    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 inline-block">Contact</h2>
+    <p>Email: <a href="mailto:barid.cahyo@gmail.com" class="text-blue-600 hover:underline">barid.cahyo@gmail.com</a></p>
     <p>Phone: 087888467625</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/barid-cahyo-nugroho-a7b0a4115" target="_blank">linkedin.com/in/barid-cahyo-nugroho</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/barid-cahyo-nugroho-a7b0a4115" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/barid-cahyo-nugroho</a></p>
     <p>Location: Bekasi, West Java, Indonesia</p>
   </section>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white text-center py-6 mt-8 reveal">
     <p>© 2025 Barid Cahyo Nugroho | Built with ❤ on GitHub Pages</p>
   </footer>
 
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dark');
-      const btn = document.querySelector('.theme-toggle');
-      if (document.body.classList.contains('dark')) {
-        btn.textContent = '☀️ Light Mode';
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        themeToggle.textContent = '☀️ Light Mode';
       } else {
-        btn.textContent = '🌙 Dark Mode';
+        themeToggle.textContent = '🌙 Dark Mode';
+      }
+    });
+
+    // Scroll animation
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 100;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add('active');
+        } else {
+          reveals[i].classList.remove('active');
+        }
       }
     }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
   </script>
 </body>
 </html>
