@@ -1,7 +1,7 @@
 # 🌐 Barid Cahyo Nugroho - Portfolio Website
 
 Ini adalah repository untuk website portofolio saya yang dibangun menggunakan **GitHub Pages**.  
-Website ini menampilkan profil, pengalaman kerja, keahlian, pendidikan, dan kontak saya sebagai **Android Developer**.
+Website ini menampilkan profil, pengalaman kerja, keahlian dan kontak saya sebagai **Android Developer**.
 
 🔗 **Live Website:** [https://baridcahyo.github.io](https://baridcahyo.github.io)
 
@@ -14,7 +14,6 @@ Website ini menampilkan profil, pengalaman kerja, keahlian, pendidikan, dan kont
   - Tentang saya
   - Pengalaman kerja
   - Keahlian inti
-  - Pendidikan
   - Informasi kontak
 
 ---
