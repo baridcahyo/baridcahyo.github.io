@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="transition-all">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     body {font-family: 'Poppins', sans-serif;}
-    .dark-mode {background-color: #0f172a; color: #e2e8f0;}
     .transition-all {transition: all 0.5s ease;}
+
+    /* Smooth Scroll */
+    html {scroll-behavior: smooth;}
 
     /* Scroll Animations */
     .reveal {opacity: 0; transform: translateY(30px); transition: all 0.8s ease;}
@@ -18,54 +20,67 @@
     /* Hover Effects */
     .hover-card {transition: transform 0.3s ease, box-shadow 0.3s ease;}
     .hover-card:hover {transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
+
+    /* Floating Button Animation */
+    .float-anim {animation: popIn 0.6s ease forwards;}
+    @keyframes popIn {
+      0% {transform: scale(0) translateY(50px); opacity: 0;}
+      100% {transform: scale(1) translateY(0); opacity: 1;}
+    }
+
+    /* Floating Button Hover Rotate */
+    .float-rotate {transition: transform 0.3s ease;}
+    .float-rotate:hover {transform: rotate(20deg) scale(1.1);}
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 transition-all">
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-all">
   <!-- Header / Hero -->
-  <header class="bg-gray-900 text-white py-12 text-center reveal">
+  <header class="bg-gray-900 dark:bg-gray-800 text-white py-12 text-center relative reveal">
     <h1 class="text-3xl font-bold">Barid Cahyo Nugroho</h1>
     <p class="text-lg mt-2">Android Developer | Mobile Programmer | Consultant</p>
-    <button id="themeToggle" class="mt-4 px-4 py-2 bg-blue-500 rounded-full hover:bg-blue-600 transition">🌙 Dark Mode</button>
+
+    <!-- Navbar in top-right corner -->
+    <nav class="absolute top-4 right-6">
+      <ul class="flex gap-6 text-sm">
+        <li><a href="#about" class="hover:underline transition-colors">About</a></li>
+        <li><a href="#experience" class="hover:underline transition-colors">Experience</a></li>
+        <li><a href="#skills" class="hover:underline transition-colors">Skills</a></li>
+        <li><a href="#projects" class="hover:underline transition-colors">Projects</a></li>
+        <li><a href="#contact" class="hover:underline transition-colors">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Navbar -->
-  <nav class="sticky top-0 bg-gray-800 text-white py-3 shadow-md z-10">
-    <ul class="flex justify-center gap-6">
-      <li><a href="#about" class="hover:underline">About</a></li>
-      <li><a href="#experience" class="hover:underline">Experience</a></li>
-      <li><a href="#skills" class="hover:underline">Skills</a></li>
-      <li><a href="#projects" class="hover:underline">Projects</a></li>
-      <li><a href="#contact" class="hover:underline">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- Floating Dark Mode Toggle -->
+  <button id="themeToggle" class="fixed bottom-6 right-6 px-4 py-3 rounded-full bg-blue-500 hover:bg-blue-600 text-white shadow-lg transition transform float-anim float-rotate">🌙</button>
 
   <!-- About -->
   <section id="about" class="max-w-4xl mx-auto py-12 px-4 reveal">
-    <h2 class="text-2xl font-semibold mb-4 border-b-2 border-gray-300 inline-block">About Me</h2>
+    <h2 class="text-2xl font-semibold mb-4 border-b-2 border-gray-300 dark:border-gray-600 inline-block">About Me</h2>
     <p>Experienced Android Developer with end-to-end experience in IT implementation projects in the telecommunication and IT consulting industry. Skilled in analyzing, documenting business requirements, and developing functional systems for mobile applications.</p>
   </section>
 
   <!-- Experience -->
   <section id="experience" class="max-w-4xl mx-auto py-12 px-4 reveal">
-    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 inline-block">Work Experience</h2>
+    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 dark:border-gray-600 inline-block">Work Experience</h2>
 
-    <div class="bg-white rounded-xl shadow-md p-6 mb-6 hover-card">
+    <div class="bg-white dark:bg-gray-800 dark:text-gray-200 rounded-xl shadow-md p-6 mb-6 hover-card">
       <h3 class="text-xl font-semibold">Sr. Consultant | DT Android (Apr 2021 - Present)</h3>
-      <p class="text-gray-600 font-medium">PHINCON | Jakarta Selatan, Indonesia</p>
+      <p class="text-gray-600 dark:text-gray-300 font-medium">PHINCON | Jakarta Selatan, Indonesia</p>
       <img src="assets/images/mytelkomsel.png" alt="MyTelkomsel App" class="w-32 my-3 rounded-lg">
       <p>Developing and maintaining MyTelkomsel App, collaborating with QA, SA, PO, and stakeholders. Responsible for feature development, issue fixing, deployment builds, and mentoring juniors.</p>
     </div>
 
-    <div class="bg-white rounded-xl shadow-md p-6 mb-6 hover-card">
+    <div class="bg-white dark:bg-gray-800 dark:text-gray-200 rounded-xl shadow-md p-6 mb-6 hover-card">
       <h3 class="text-xl font-semibold">Android Engineer (Nov 2019 - Jul 2020)</h3>
-      <p class="text-gray-600 font-medium">GudangAda | Tangerang, Indonesia</p>
+      <p class="text-gray-600 dark:text-gray-300 font-medium">GudangAda | Tangerang, Indonesia</p>
       <img src="assets/images/gudangada.png" alt="GudangAda App" class="w-32 my-3 rounded-lg">
       <p>Developed and maintained GudangAda App. Collaborated with QA, backend, and stakeholders. Prepared builds for Playstore, feature development, and bug fixing.</p>
     </div>
 
-    <div class="bg-white rounded-xl shadow-md p-6 mb-6 hover-card">
+    <div class="bg-white dark:bg-gray-800 dark:text-gray-200 rounded-xl shadow-md p-6 mb-6 hover-card">
       <h3 class="text-xl font-semibold">Software Developer (Feb 2018 - Nov 2019)</h3>
-      <p class="text-gray-600 font-medium">PT. Cipta Inovatif Abadi | Jakarta, Indonesia</p>
+      <p class="text-gray-600 dark:text-gray-300 font-medium">PT. Cipta Inovatif Abadi | Jakarta, Indonesia</p>
       <div class="flex gap-4 my-3 flex-wrap">
         <img src="assets/images/restogo.png" alt="RestoGo" class="w-24 rounded-lg">
         <img src="assets/images/storego.png" alt="StoreGo" class="w-24 rounded-lg">
@@ -74,9 +89,9 @@
       <p>Worked on RestoGo, StoreGo, ServGo apps. Handled feature development, bug fixing, and Playstore deployment.</p>
     </div>
 
-    <div class="bg-white rounded-xl shadow-md p-6 hover-card">
+    <div class="bg-white dark:bg-gray-800 dark:text-gray-200 rounded-xl shadow-md p-6 hover-card">
       <h3 class="text-xl font-semibold">Support Services Engineer (Oct 2016 - Oct 2017)</h3>
-      <p class="text-gray-600 font-medium">Silverlake Group | Jakarta, Indonesia</p>
+      <p class="text-gray-600 dark:text-gray-300 font-medium">Silverlake Group | Jakarta, Indonesia</p>
       <img src="assets/images/silverlake.png" alt="Silverlake Group" class="w-32 my-3 rounded-lg">
       <p>Analyst Programmer using RPGLE AS-400 on Banking Project OCBC NISP.</p>
     </div>
@@ -84,44 +99,44 @@
 
   <!-- Skills -->
   <section id="skills" class="max-w-4xl mx-auto py-12 px-4 reveal">
-    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 inline-block">Core Skills</h2>
+    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 dark:border-gray-600 inline-block">Core Skills</h2>
     <div class="flex flex-wrap gap-3">
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Kotlin</span>
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Java</span>
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">MVVM</span>
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">SQLite</span>
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Firebase</span>
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Room DB</span>
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Realm DB</span>
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">REST API</span>
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Git CI/CD</span>
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Android Studio</span>
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Jira</span>
-      <span class="px-3 py-1 bg-gray-200 rounded-full hover:scale-110 transition">Confluence</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">Kotlin</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">Java</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">MVVM</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">SQLite</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">Firebase</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">Room DB</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">Realm DB</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">REST API</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">Git CI/CD</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">Android Studio</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">Jira</span>
+      <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:scale-110 transition">Confluence</span>
     </div>
   </section>
 
   <!-- Projects -->
   <section id="projects" class="max-w-4xl mx-auto py-12 px-4 reveal">
-    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 inline-block">Projects</h2>
+    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 dark:border-gray-600 inline-block">Projects</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="bg-white shadow-md rounded-xl p-4 hover-card">
+      <div class="bg-white dark:bg-gray-800 dark:text-gray-200 shadow-md rounded-xl p-4 hover-card">
         <img src="assets/images/mytelkomsel.png" alt="MyTelkomsel" class="rounded-md mb-3">
         <h3 class="text-lg font-semibold">MyTelkomsel App</h3>
-        <p class="text-gray-600">Telecommunication app with millions of users. Worked on feature development and maintenance.</p>
+        <p class="text-gray-600 dark:text-gray-300">Telecommunication app with millions of users. Worked on feature development and maintenance.</p>
       </div>
-      <div class="bg-white shadow-md rounded-xl p-4 hover-card">
+      <div class="bg-white dark:bg-gray-800 dark:text-gray-200 shadow-md rounded-xl p-4 hover-card">
         <img src="assets/images/gudangada.png" alt="GudangAda" class="rounded-md mb-3">
         <h3 class="text-lg font-semibold">GudangAda App</h3>
-        <p class="text-gray-600">Wholesale marketplace app. Built new features and handled Playstore releases.</p>
+        <p class="text-gray-600 dark:text-gray-300">Wholesale marketplace app. Built new features and handled Playstore releases.</p>
       </div>
     </div>
   </section>
 
   <!-- Education -->
   <section id="education" class="max-w-4xl mx-auto py-12 px-4 reveal">
-    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 inline-block">Education</h2>
-    <div class="bg-white shadow-md rounded-xl p-6 hover-card">
+    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 dark:border-gray-600 inline-block">Education</h2>
+    <div class="bg-white dark:bg-gray-800 dark:text-gray-200 shadow-md rounded-xl p-6 hover-card">
       <h3 class="text-xl font-semibold">Universitas Gunadarma (2011 - 2015)</h3>
       <p>Bachelor's degree in Computer Science</p>
     </div>
@@ -129,7 +144,7 @@
 
   <!-- Contact -->
   <section id="contact" class="max-w-4xl mx-auto py-12 px-4 reveal">
-    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 inline-block">Contact</h2>
+    <h2 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 dark:border-gray-600 inline-block">Contact</h2>
     <p>Email: <a href="mailto:barid.cahyo@gmail.com" class="text-blue-600 hover:underline">barid.cahyo@gmail.com</a></p>
     <p>Phone: 087888467625</p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/barid-cahyo-nugroho-a7b0a4115" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/barid-cahyo-nugroho</a></p>
@@ -137,18 +152,27 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center py-6 mt-8 reveal">
+  <footer class="bg-gray-900 dark:bg-gray-800 text-white text-center py-6 mt-8 reveal">
     <p>© 2025 Barid Cahyo Nugroho | Built with ❤ on GitHub Pages</p>
   </footer>
 
   <script>
     const themeToggle = document.getElementById('themeToggle');
+
+    // Apply saved theme on load
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+      themeToggle.textContent = '☀️';
+    }
+
     themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      if (document.body.classList.contains('dark-mode')) {
-        themeToggle.textContent = '☀️ Light Mode';
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️';
       } else {
-        themeToggle.textContent = '🌙 Dark Mode';
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙';
       }
     });
 
@@ -169,6 +193,27 @@
 
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
+
+    // Navbar Active Highlight
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    const options = { threshold: 0.6 };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove("text-blue-500", "font-bold", "underline");
+            if (link.getAttribute("href").substring(1) === entry.target.id) {
+              link.classList.add("text-blue-500", "font-bold", "underline");
+            }
+          });
+        }
+      });
+    }, options);
+
+    sections.forEach(section => observer.observe(section));
   </script>
 </body>
 </html>
