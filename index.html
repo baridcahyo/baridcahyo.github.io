@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barid Cahyo Nugroho | Android Developer</title>
+  <title>Barid Cahyo Nugroho</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -14,39 +14,32 @@
   <style>
     body {font-family: 'Poppins', sans-serif;}
     .transition-all {transition: all 0.5s ease;}
-
-    /* Smooth Scroll */
     html {scroll-behavior: smooth;}
 
-    /* Scroll Animations */
+    /* Ensure anchor targets are visible under the header */
+    :root {scroll-padding-top: 6rem;}
+    section {scroll-margin-top: 6rem;}
+
     .reveal {opacity: 0; transform: translateY(30px); transition: all 0.8s ease;}
     .reveal.active {opacity: 1; transform: translateY(0);}
-
-    /* Hover Effects */
     .hover-card {transition: transform 0.3s ease, box-shadow 0.3s ease;}
     .hover-card:hover {transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
-
-    /* Floating Button Animation */
     .float-anim {animation: popIn 0.6s ease forwards;}
-    @keyframes popIn {
-      0% {transform: scale(0) translateY(50px); opacity: 0;}
-      100% {transform: scale(1) translateY(0); opacity: 1;}
-    }
-
-    /* Floating Button Hover Rotate */
+    @keyframes popIn {0% {transform: scale(0) translateY(50px); opacity: 0;}100% {transform: scale(1) translateY(0); opacity: 1;}}
     .float-rotate {transition: transform 0.3s ease;}
     .float-rotate:hover {transform: rotate(20deg) scale(1.1);}
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-all">
-  <!-- Header / Hero -->
-  <header class="bg-gray-900 dark:bg-gray-800 text-white py-12 text-center relative reveal">
-    <h1 class="text-3xl font-bold">Barid Cahyo Nugroho</h1>
-    <p class="text-lg mt-2">Android Developer | Mobile Programmer | Consultant</p>
 
-    <!-- Navbar in top-right corner -->
-    <nav class="absolute top-4 right-6">
-      <ul class="flex gap-6 text-sm">
+  <!-- Hero Section -->
+  <header class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-16 relative">
+    <!-- Logo top-left -->
+    <div class="absolute top-4 left-6 text-2xl md:text-3xl font-bold text-blue-600">Barid.</div>
+
+    <!-- Navbar centered (z-index to make it clickable) -->
+    <nav class="absolute top-4 left-1/2 transform -translate-x-1/2 z-50">
+      <ul class="flex gap-6 text-sm items-center">
         <li><a href="#about" class="hover:underline transition-colors">About</a></li>
         <li><a href="#experience" class="hover:underline transition-colors">Experience</a></li>
         <li><a href="#skills" class="hover:underline transition-colors">Skills</a></li>
@@ -54,6 +47,31 @@
         <li><a href="#contact" class="hover:underline transition-colors">Contact</a></li>
       </ul>
     </nav>
+
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <!-- Left Content -->
+      <div>
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+          Hi! I Am <span class="text-blue-600">Barid Cahyo Nugroho</span>
+        </h1>
+        <span class="inline-block bg-blue-600 text-white text-sm px-4 py-1 rounded-full mb-4">Android Developer</span>
+        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+          Developing Android applications with 7+ years of experience in IT consulting and telecommunication industry. 
+          Skilled in Kotlin, Java, Firebase, MVVM, and modern mobile technologies.
+        </p>
+        <div class="flex gap-4 mb-6">
+          <a href="#contact" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md transition">Hire Me</a>
+          <a href="#projects" class="px-6 py-3 border border-gray-400 dark:border-gray-600 hover:border-blue-500 rounded-lg transition">Projects</a>
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <div class="flex justify-center md:justify-end relative">
+        <img src="https://media.licdn.com/dms/image/v2/C5603AQElvCZ7kjQKXg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1631805191843?e=1761177600&v=beta&t=02b6OJguLKTCzcgspVO8oAqKiL7mym7HeMA894XSZiE" alt="Barid Cahyo Nugroho" class="rounded-2xl w-72 md:w-96 shadow-lg">
+        <div class="absolute top-6 right-12 bg-white dark:bg-gray-800 p-3 rounded-full shadow-md">📱</div>
+        <div class="absolute bottom-6 left-6 bg-white dark:bg-gray-800 p-3 rounded-full shadow-md">☕</div>
+      </div>
+    </div>
   </header>
 
   <!-- Floating Dark Mode Toggle -->
@@ -74,6 +92,11 @@
       <p class="text-gray-600 dark:text-gray-300 font-medium">PHINCON | Jakarta Selatan, Indonesia</p>
       <img src="assets/images/mytelkomsel.png" alt="MyTelkomsel App" class="w-32 my-3 rounded-lg">
       <p>Developing and maintaining MyTelkomsel App, collaborating with QA, SA, PO, and stakeholders. Responsible for feature development, issue fixing, deployment builds, and mentoring juniors.</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4">
+        <img src="assets/images/mytelkomsel-home.png" alt="MyTelkomsel Home" class="rounded-lg shadow-md">
+        <img src="assets/images/mytelkomsel-profile.png" alt="MyTelkomsel Profile" class="rounded-lg shadow-md">
+        <img src="assets/images/mytelkomsel-purchase.png" alt="MyTelkomsel Purchase" class="rounded-lg shadow-md">
+      </div>
     </div>
 
     <div class="bg-white dark:bg-gray-800 dark:text-gray-200 rounded-xl shadow-md p-6 mb-6 hover-card">
@@ -162,14 +185,12 @@
   </footer>
 
   <script>
+    // Theme toggle
     const themeToggle = document.getElementById('themeToggle');
-
-    // Apply saved theme on load
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark');
       themeToggle.textContent = '☀️';
     }
-
     themeToggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
       if (document.documentElement.classList.contains('dark')) {
@@ -181,7 +202,7 @@
       }
     });
 
-    // Scroll animation
+    // Reveal on scroll
     function revealOnScroll() {
       const reveals = document.querySelectorAll('.reveal');
       for (let i = 0; i < reveals.length; i++) {
@@ -195,29 +216,40 @@
         }
       }
     }
-
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
 
-    // Navbar Active Highlight
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav ul li a");
+    // Smooth anchor clicks with header offset
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const id = this.getAttribute('href').substring(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        const headerHeight = document.querySelector('header').offsetHeight;
+        const offset = 24; // extra spacing
+        const top = window.pageYOffset + target.getBoundingClientRect().top - headerHeight - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+        history.pushState(null, '', '#' + id);
+      });
+    });
 
-    const options = { threshold: 0.6 };
-
+    // IntersectionObserver for active nav highlighting — adjusted for header offset
+    const sections = document.querySelectorAll('section');
+    const obsOptions = { root: null, rootMargin: '-120px 0px -40% 0px', threshold: 0.2 };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           navLinks.forEach(link => {
-            link.classList.remove("text-blue-500", "font-bold", "underline");
-            if (link.getAttribute("href").substring(1) === entry.target.id) {
-              link.classList.add("text-blue-500", "font-bold", "underline");
+            link.classList.remove('text-blue-500', 'font-bold', 'underline');
+            if (link.getAttribute('href').substring(1) === entry.target.id) {
+              link.classList.add('text-blue-500', 'font-bold', 'underline');
             }
           });
         }
       });
-    }, options);
-
+    }, obsOptions);
     sections.forEach(section => observer.observe(section));
   </script>
 </body>
